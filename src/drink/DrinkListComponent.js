@@ -13,6 +13,9 @@ const DrinkListComponent = () => {
 	const [error, setError] = useState(false);
 	const [drinks, setDrinks] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
+
+	const [expandedDrinks, setExpandedDrinks] = useState([]);
+
 	const itemsPerPage = 4; // Number of burgers to show per page
 	const getAllDrinks = async () => {
 		try {
@@ -92,9 +95,34 @@ const DrinkListComponent = () => {
 														rating={drink.stars}
 													></RatingComponent>
 												</span>
-												<p className="card-text text-muted">
-													{drink.description.slice(0, 40)}...
-												</p>{" "}
+												<span className="card-text text-muted">
+													{expandedDrinks.includes(drink.id)
+														? drink.description
+														: drink.description.slice(0, 40)}
+													...
+												</span>
+
+												{expandedDrinks.includes(drink.id) ? (
+													<button
+														className="btn btn-link btn-sm"
+														onClick={() =>
+															setExpandedDrinks(
+																expandedDrinks.filter((id) => id !== drink.id)
+															)
+														}
+													>
+														SEE LESS
+													</button>
+												) : (
+													<button
+														className="btn btn-link btn-sm"
+														onClick={() =>
+															setExpandedDrinks([...expandedDrinks, drink.id])
+														}
+													>
+														SEE MORE
+													</button>
+												)}
 												<hr />
 												<button className="btn btn-outline-danger fw-bold btn-md">
 													${drink.price}

@@ -12,7 +12,7 @@ const BurgerListComponent = () => {
 	const [burgers, setBurgers] = useState([]);
 	const [drinks, setDrinks] = useState([]);
 	const [searchTerm, setSearchTerm] = useState(""); // State for search input
-
+	const [expandedBurgers, setExpandedBurgers] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const itemsPerPage = 4; // Number of burgers to show per page
 
@@ -128,9 +128,38 @@ const BurgerListComponent = () => {
 													<p className="text-warning fw-bold">
 														Reviews: {burger.review}
 													</p>
-													<p className="card-text text-muted">
-														{burger.description.slice(0, 50)}...
-													</p>
+													<span className="card-text text-muted">
+														{expandedBurgers.includes(burger.id)
+															? burger.description
+															: burger.description.slice(0, 45)}
+													</span>
+													...
+													{expandedBurgers.includes(burger.id) ? (
+														<button
+															className="btn btn-link btn-sm"
+															onClick={() =>
+																setExpandedBurgers(
+																	expandedBurgers.filter(
+																		(id) => id !== burger.id
+																	)
+																)
+															}
+														>
+															SEE LESS
+														</button>
+													) : (
+														<button
+															className="btn btn-link btn-sm"
+															onClick={() =>
+																setExpandedBurgers([
+																	...expandedBurgers,
+																	burger.id,
+																])
+															}
+														>
+															SEE MORE
+														</button>
+													)}
 													<hr />
 													<button className="btn btn-outline-danger fw-bold btn-sm">
 														${burger.price}
