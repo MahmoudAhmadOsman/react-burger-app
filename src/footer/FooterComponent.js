@@ -133,8 +133,8 @@ const FooterComponent = () => {
 				className="text-center p-4"
 				style={{ backgroundColor: "rgba(255 255 255 / 5%)" }}
 			>
-				&copy; VAST BURGERS, INC. {new Date().getFullYear()}. All rights
-				reserved. &nbsp; Built by{" "}
+				&copy; Copyright. {new Date().getFullYear()}. VAST BURGERS, INC. All
+				rights reserved. &nbsp; Designed & developed by{" "}
 				<Link
 					to="http://www.mahmoudosman.com"
 					target="_blank"

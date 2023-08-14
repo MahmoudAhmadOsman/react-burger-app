@@ -2,5 +2,10 @@
 	height: auto;
 	margin-top: 25%;
 	background-color: #181818;
-	color: #fff;
+	font-size: 10px;
+	color: #888;
+}
+.footer a {
+	color: #f39200;
+	font-size: 9px;
 }
