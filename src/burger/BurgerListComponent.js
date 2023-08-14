@@ -12,9 +12,15 @@ const BurgerListComponent = () => {
 	const [burgers, setBurgers] = useState([]);
 	const [drinks, setDrinks] = useState([]);
 	const [searchTerm, setSearchTerm] = useState(""); // State for search input
-	const [expandedBurgers, setExpandedBurgers] = useState([]); // see more, see less
+
 	const [currentPage, setCurrentPage] = useState(1);
 	const itemsPerPage = 4; // Number of burgers to show per page
+
+	const [expandedBurgerId, setExpandedBurgerId] = useState(null);
+
+	const toggleBurgerDescription = (BurgerId) => {
+		setExpandedBurgerId(BurgerId === expandedBurgerId ? null : BurgerId);
+	};
 
 	const getAllBurgers = async () => {
 		try {
@@ -128,38 +134,51 @@ const BurgerListComponent = () => {
 													<p className="text-warning fw-bold">
 														Reviews: {burger.review}
 													</p>
-													<span className="card-text text-muted">
-														{expandedBurgers.includes(burger.id)
-															? burger.description
-															: burger.description.slice(0, 45)}
-													</span>
-													...
-													{expandedBurgers.includes(burger.id) ? (
-														<button
-															className="btn btn-link btn-sm"
-															onClick={() =>
-																setExpandedBurgers(
-																	expandedBurgers.filter(
-																		(id) => id !== burger.id
-																	)
-																)
-															}
-														>
-															SEE LESS
-														</button>
+													{/* <span className="card-text text-muted">
+														{burger.description.slice(0, 45)}...
+													</span> */}
+
+													{expandedBurgerId === burger.id ? (
+														<>
+															<span>{burger.description}</span>
+															<br />
+															<button
+																className="btn btn-link p-0"
+																onClick={() =>
+																	toggleBurgerDescription(burger.id)
+																}
+															>
+																See less
+															</button>
+														</>
 													) : (
-														<button
-															className="btn btn-link btn-sm"
-															onClick={() =>
-																setExpandedBurgers([
-																	...expandedBurgers,
-																	burger.id,
-																])
-															}
-														>
-															SEE MORE
-														</button>
+														<>
+															<span>
+																<small
+																	className="text-muted"
+																	style={{ fontSize: "10px" }}
+																>
+																	Burger Description
+																</small>{" "}
+																<br />
+																{burger.description.substring(0, 60)}
+															</span>
+															{burger.description.length > 60 && (
+																<>
+																	...
+																	<button
+																		className="btn btn-link p-0"
+																		onClick={() =>
+																			toggleBurgerDescription(burger.id)
+																		}
+																	>
+																		See more
+																	</button>
+																</>
+															)}
+														</>
 													)}
+
 													<hr />
 													<button className="btn btn-outline-danger fw-bold btn-sm">
 														${burger.price}

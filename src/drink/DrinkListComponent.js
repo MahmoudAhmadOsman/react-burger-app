@@ -16,6 +16,12 @@ const DrinkListComponent = () => {
 
 	const [expandedDrinks, setExpandedDrinks] = useState([]); // see more, see less
 
+	const [expandedDrinkId, setExpandedDrinkId] = useState(null);
+
+	const toggleDrinkDescription = (DrinkId) => {
+		setExpandedDrinkId(DrinkId === expandedDrinkId ? null : DrinkId);
+	};
+
 	const itemsPerPage = 4; // Number of burgers to show per page
 	const getAllDrinks = async () => {
 		try {
@@ -95,34 +101,50 @@ const DrinkListComponent = () => {
 														rating={drink.stars}
 													></RatingComponent>
 												</span>
-												<span className="card-text text-muted">
-													{expandedDrinks.includes(drink.id)
-														? drink.description
-														: drink.description.slice(0, 40)}
+												{/* <span className="card-text text-muted">
+													{drink.description.slice(0, 40)}
 													...
-												</span>
+												</span> */}
 
-												{expandedDrinks.includes(drink.id) ? (
-													<button
-														className="btn btn-link btn-sm"
-														onClick={() =>
-															setExpandedDrinks(
-																expandedDrinks.filter((id) => id !== drink.id)
-															)
-														}
-													>
-														SEE LESS
-													</button>
+												{expandedDrinkId === drink.id ? (
+													<>
+														<span>{drink.description}</span>
+														<br />
+														<button
+															className="btn btn-link p-0"
+															onClick={() => toggleDrinkDescription(drink.id)}
+														>
+															See less
+														</button>
+													</>
 												) : (
-													<button
-														className="btn btn-link btn-sm"
-														onClick={() =>
-															setExpandedDrinks([...expandedDrinks, drink.id])
-														}
-													>
-														SEE MORE
-													</button>
+													<>
+														<span>
+															<small
+																className="text-muted"
+																style={{ fontSize: "10px" }}
+															>
+																Drink Description
+															</small>{" "}
+															<br />
+															{drink.description.substring(0, 60)}
+														</span>
+														{drink.description.length > 60 && (
+															<>
+																...
+																<button
+																	className="btn btn-link p-0"
+																	onClick={() =>
+																		toggleDrinkDescription(drink.id)
+																	}
+																>
+																	See more
+																</button>
+															</>
+														)}
+													</>
 												)}
+
 												<hr />
 												<button className="btn btn-outline-danger fw-bold btn-md">
 													${drink.price}
