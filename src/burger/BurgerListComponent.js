@@ -12,7 +12,7 @@ const BurgerListComponent = () => {
 	const [burgers, setBurgers] = useState([]);
 	const [drinks, setDrinks] = useState([]);
 	const [searchTerm, setSearchTerm] = useState(""); // State for search input
-	const [expandedBurgers, setExpandedBurgers] = useState([]);
+	const [expandedBurgers, setExpandedBurgers] = useState([]); // see more, see less
 	const [currentPage, setCurrentPage] = useState(1);
 	const itemsPerPage = 4; // Number of burgers to show per page
 

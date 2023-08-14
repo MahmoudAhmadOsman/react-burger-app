@@ -14,7 +14,7 @@ const DrinkListComponent = () => {
 	const [drinks, setDrinks] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 
-	const [expandedDrinks, setExpandedDrinks] = useState([]);
+	const [expandedDrinks, setExpandedDrinks] = useState([]); // see more, see less
 
 	const itemsPerPage = 4; // Number of burgers to show per page
 	const getAllDrinks = async () => {
