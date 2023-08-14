@@ -1,0 +1,26 @@
+.loading-template {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #ffffffea;
+	background-color: #fff;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+.loading-template .items {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 80%;
+	width: 100%;
+}
+.loading-template h1 {
+	color: brown;
+}
+
+.loading-template img {
+	border-bottom: 10px solid brown;
+}
