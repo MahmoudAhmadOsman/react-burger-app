@@ -231,7 +231,7 @@ const ShoppingCartComponent = () => {
 							) : (
 								<>
 									<h1 className="text-success"> Shopping Cart Items</h1>
-									<div className="float-end" style={{ marginBottom: "10px" }}>
+									<div className="float-end" style={{ marginBottom: "10px", marginTop: "-6px" }}>
 										<Link
 											className="float-end btn btn-outline-info"
 											to={"/burgers"}
