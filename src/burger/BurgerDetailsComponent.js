@@ -167,7 +167,7 @@ const BurgerDetailsComponent = () => {
 							<RatingComponent rating={burger.stars}></RatingComponent>
 						</span>
 						<p>
-							<b className="text-warning">Reviews:</b> {burger.review}
+							<b className="text-warning">Reviews:</b> ({burger.review})
 						</p>
 						<h4 className="text-muted">Description</h4>
 						<p className="about">{burger.description}</p> <hr />
