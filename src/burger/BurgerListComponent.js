@@ -132,7 +132,7 @@ const BurgerListComponent = () => {
 														<RatingComponent rating={burger.stars} />
 													</span>
 													<p className="text-warning fw-bold">
-														Reviews: {burger.review}
+														Reviews: ({burger.review}) 
 													</p>
 													{/* <span className="card-text text-muted">
 														{burger.description.slice(0, 45)}...
