@@ -39,11 +39,11 @@ function App() {
   ));
 
   // Set loading to false when it's done
-  if (loading) {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000); // Simulate loading for 2 seconds
-  }
+  // if (loading) {
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 2000); // Simulate loading for 2 seconds
+  // }
 
   return (
     <CartProvider>
