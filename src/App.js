@@ -15,48 +15,55 @@ import BurgerDetailsComponent from "./burger/BurgerDetailsComponent";
 import OrderListcomponent from "./order/OrderListcomponent";
 
 function App() {
-	const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-	return (
-		<CartProvider>
-			<BrowserRouter>
-				<ToastContainer />
+  // Define an array of route objects
+  const routes = [
+    { path: '/orders', element: <OrderListComponent /> },
+    { path: '/shopping-cart', element: <ShoppingCartComponent /> },
+    { path: '/view-drink/:id', element: <DrinkDetailsComponent /> },
+    { path: '/view-burger/:id', element: <BurgerDetailsComponent /> },
+    { path: '/burgers', element: <BurgerListComponent /> },
+    { path: '/', exact: true, element: <HomeComponent /> },
+    { path: '*', element: <NotFound /> },
+  ];
 
-				{loading ? (
-					<>
-						<Loading />
-						{setLoading(false)}
-					</>
-				) : (
-					<>
-						<Navigation />
-						<React.Fragment>
-							<Routes>
-								<Route path="/orders" element={<OrderListcomponent />} />
-								<Route
-									path="/shopping-cart"
-									element={<ShoppingCartComponent />}
-								/>
+  // Use .map() to generate <Route> components
+  const routeComponents = routes.map((route, index) => (
+    <Route
+      key={index}
+      path={route.path}
+      element={route.element}
+      exact={route.exact}
+    />
+  ));
 
-								<Route
-									path="/view-drink/:id"
-									element={<DrinkDetailsComponent />}
-								/>
-								<Route
-									path="/view-burger/:id"
-									element={<BurgerDetailsComponent />}
-								/>
-								<Route path="/burgers" element={<BurgerListComponent />} />
-								<Route path="/" exact element={<HomeComponent />} />
-								<Route path="*" element={<NotFound />} />
-							</Routes>
-						</React.Fragment>
-						<FooterComponent />
-					</>
-				)}
-			</BrowserRouter>
-		</CartProvider>
-	);
+  // Set loading to false when it's done
+  if (loading) {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Simulate loading for 2 seconds
+  }
+
+  return (
+    <CartProvider>
+      <BrowserRouter>
+        <ToastContainer />
+
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            <Navigation />
+            <React.Fragment>
+              <Routes>{routeComponents}</Routes>
+            </React.Fragment>
+            <FooterComponent />
+          </>
+        )}
+      </BrowserRouter>
+    </CartProvider>
+  );
 }
 
 export default App;
