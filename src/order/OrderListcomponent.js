@@ -201,7 +201,7 @@ const OrderListcomponent = () => {
 												</tr>
 											))}
 										</tbody>
-										<caption>Number of order items {orders.length}</caption>
+										<caption>Number of ordered items: {orders.length}</caption>
 									</table>
 								</div>
 							</>

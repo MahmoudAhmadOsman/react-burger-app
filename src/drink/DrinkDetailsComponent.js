@@ -4,6 +4,7 @@ import BurgerService from "../service/BurgerService";
 import { toast } from "react-toastify";
 import Loading from "../utils/Loading";
 import RatingComponent from "../rating/RatingComponent";
+import CartItem from "../cart/CartItem";
 
 const DrinkDetailsComponent = () => {
 	const { id } = useParams();
@@ -96,21 +97,7 @@ const DrinkDetailsComponent = () => {
 							<div className="col-md-3">
 								<div className="float-end">
 									<div className="cart-items d-flex">
-										<Link to="/shopping/shopping-cart">
-											<button
-												type="button"
-												className="btn btn-dark position-relative"
-											>
-												<i
-													className="fa fa-shopping-cart"
-													aria-hidden="true"
-												></i>
-												&nbsp;
-												<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-													{cart.length}
-												</span>
-											</button>
-										</Link>
+										<CartItem cart={cart} />
 									</div>
 								</div>
 							</div>
