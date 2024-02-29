@@ -64,16 +64,16 @@ const OrderListcomponent = () => {
 		const interval = setInterval(() => {
 			switch (orderStatus) {
 				case "Received":
-					setOrderStatus("Processing");
+					setTimeout(() => setOrderStatus("Processing"), 2000);
 					break;
 				case "Processing":
-					setOrderStatus("Shipping");
+					setTimeout(() => setOrderStatus("Shipping"), 2000);
 					break;
 				case "Shipping":
-					setOrderStatus("Delivering");
+					setTimeout(() => setOrderStatus("Delivering"), 2000);
 					break;
 				case "Delivering":
-					setOrderStatus("Completed");
+					setTimeout(() => setOrderStatus("Completed"), 50000);
 					break;
 				case "Completed":
 					clearInterval(interval);
@@ -85,6 +85,7 @@ const OrderListcomponent = () => {
 
 		return () => clearInterval(interval);
 	}, [orderStatus]);
+
 	const getIconClass = () => {
 		switch (orderStatus) {
 			case "Processing":
@@ -96,7 +97,7 @@ const OrderListcomponent = () => {
 			case "Completed":
 				return "fa fa-check-circle";
 			default:
-				return "";
+				return "fa fa-first-order";
 		}
 	};
 	return (
