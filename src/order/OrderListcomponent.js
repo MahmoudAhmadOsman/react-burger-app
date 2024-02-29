@@ -81,20 +81,20 @@ const OrderListcomponent = () => {
 				default:
 					break;
 			}
-		}, 100000);  
+		}, 5000);
 
 		return () => clearInterval(interval);
-	}, [orderStatus]); // Trigger effect whenever orderStatus changes
+	}, [orderStatus]);
 	const getIconClass = () => {
 		switch (orderStatus) {
 			case "Processing":
-				return "fa fa-refresh fa-spin"; // example icon class for processing
+				return "fa fa-refresh fa-spin";
 			case "Shipping":
-				return "fa fa-truck"; // example icon class for shipping
+				return "fa fa-truck";
 			case "Delivering":
-				return "fa fa-truck"; // example icon class for delivering
+				return "fa fa-truck";
 			case "Completed":
-				return "fa fa-check-circle"; // example icon class for completed
+				return "fa fa-check-circle";
 			default:
 				return "";
 		}
