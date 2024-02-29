@@ -74,7 +74,7 @@ const Navigation = () => {
 
 							{cartCount > 0 ? (
 								<li className="nav-item">
-									<Link className="nav-link" to="/shopping-cart">
+									<Link className="nav-link" to="/shopping/shopping-cart">
 										<div className="nav-shopping-cart">
 											<button
 												type="button"
