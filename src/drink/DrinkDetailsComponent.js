@@ -96,7 +96,7 @@ const DrinkDetailsComponent = () => {
 							<div className="col-md-3">
 								<div className="float-end">
 									<div className="cart-items d-flex">
-										<Link to="/shopping-cart">
+										<Link to="/shopping/shopping-cart">
 											<button
 												type="button"
 												className="btn btn-dark position-relative"

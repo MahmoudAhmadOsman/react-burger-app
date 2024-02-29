@@ -9,6 +9,7 @@ const OrderListcomponent = () => {
 	const [orders, setOrders] = useState([]);
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [orderDate, setOrderDate] = useState(0);
+	const [orderStatus, setOrderStatus] = useState("Received");
 
 	const handleImageLoad = () => {
 		setLoading(false);
@@ -59,6 +60,45 @@ const OrderListcomponent = () => {
 		getAllOrders();
 	}, []);
 
+	useEffect(() => {
+		const interval = setInterval(() => {
+			switch (orderStatus) {
+				case "Received":
+					setOrderStatus("Processing");
+					break;
+				case "Processing":
+					setOrderStatus("Shipping");
+					break;
+				case "Shipping":
+					setOrderStatus("Delivering");
+					break;
+				case "Delivering":
+					setOrderStatus("Completed");
+					break;
+				case "Completed":
+					clearInterval(interval);
+					break;
+				default:
+					break;
+			}
+		}, 100000);  
+
+		return () => clearInterval(interval);
+	}, [orderStatus]); // Trigger effect whenever orderStatus changes
+	const getIconClass = () => {
+		switch (orderStatus) {
+			case "Processing":
+				return "fa fa-refresh fa-spin"; // example icon class for processing
+			case "Shipping":
+				return "fa fa-truck"; // example icon class for shipping
+			case "Delivering":
+				return "fa fa-truck"; // example icon class for delivering
+			case "Completed":
+				return "fa fa-check-circle"; // example icon class for completed
+			default:
+				return "";
+		}
+	};
 	return (
 		<div className="order-list container">
 			{loading ? (
@@ -131,14 +171,27 @@ const OrderListcomponent = () => {
 														{order.description.slice(0, 48)}...
 													</td>
 													<td>
-														{order ? (
+														{order && (
 															<div className="text-center">
-																<span className="text-success">Processing</span>
-															</div>
-														) : (
-															<div>
-																Status
-																<span className="text-danger">Pending</span>
+																<span
+																	className={`text-${
+																		orderStatus === "Processing"
+																			? "success"
+																			: "info"
+																	}`}
+																>
+																	<i className={getIconClass()}></i>{" "}
+																	{orderStatus}
+																</span>
+																{/* <span
+																	className={`text-${
+																		orderStatus === "Processing"
+																			? "success"
+																			: "info"
+																	}`}
+																>
+																	{orderStatus}
+																</span> */}
 															</div>
 														)}
 													</td>
@@ -154,76 +207,6 @@ const OrderListcomponent = () => {
 							</>
 						)}
 
-						{/* {orders.length === 0 ? (
-							<div className="alert alert-danger mt-4">
-								<h3 className="text-center">
-									No Orders Yet. Please Submit a New Order
-								</h3>
-							</div>
-						) : (
-							orders.map((order, index) => (
-								<div
-									className="col-lg-3 col-md-4 col-sm-6 clearfix "
-									key={order.id}
-								>
-									<div className="card mb-4">
-										<div className="card-header">
-											<h6>Order Item {index + 1}</h6>
-										</div>
-										{order.meal_img ? (
-											<img
-												src={order.meal_img}
-												className="img-fluid"
-												alt={order.name}
-												onLoad={handleImageLoad}
-												onError={handleImageError}
-											/>
-										) : (
-											<img
-												src={order.drink_image}
-												className="img-fluid"
-												alt={order.name}
-												onLoad={handleImageLoad}
-												onError={handleImageError}
-											/>
-										)}
-
-										<div className="card-body">
-											<h4>{order.name}</h4>
-											<h6>
-												Price :{" "}
-												<b className="text-danger fw-bold">${order.price}</b>
-											</h6>{" "}
-											<hr />
-											<b className="h5 text-muted">Description:</b>{" "}
-											<p className="text-muted">
-												{order.description.slice(0, 48)}...
-											</p>
-											<div>
-												{order ? (
-													<div>
-														<hr />
-														<b>Order Status: </b>
-
-														<span className="text-success">Processing</span>
-														<p>
-															<b>Order Date:</b>{" "}
-															<span className="text-warning">{orderDate}</span>
-														</p>
-													</div>
-												) : (
-													<div>
-														{" "}
-														Status
-														<span className="text-danger">Pending</span>
-													</div>
-												)}
-											</div>
-										</div>
-									</div>
-								</div>
-							))
-						)} */}
 						{/* Total price */}
 						{orders.length > 0 ? (
 							<div>

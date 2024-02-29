@@ -81,7 +81,7 @@ const DrinkListComponent = () => {
 										className="col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-3"
 									>
 										<div className="card">
-											<Link to={`/view-drink/${drink.id}`}>
+											<Link to={`/drinks/view-drink/${drink.id}/${drink.name}`}>
 												{drink.drink_image.length === 0 ? (
 													<>
 														<span>Loading...</span>
@@ -150,7 +150,7 @@ const DrinkListComponent = () => {
 													${drink.price}
 												</button>
 												<Link
-													to={`/view-drink/${drink.id}`}
+													to={`/drinks/view-drink/${drink.id}/${drink.name}`}
 													className="btn btn-outline-warning btn-md ms-3"
 												>
 													VIEW

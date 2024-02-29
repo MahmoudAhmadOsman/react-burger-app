@@ -117,7 +117,7 @@ const ShoppingCartComponent = () => {
 				// Reset the cart and total price
 				setCart([]);
 				localStorage.clear(); // Clear local storage
-				navigate("/orders");
+				navigate("/cart/shopping/orders");
 				setTimeout(() => {
 					window.location.reload();
 				}, 2000);
@@ -231,7 +231,10 @@ const ShoppingCartComponent = () => {
 							) : (
 								<>
 									<h1 className="text-success"> Shopping Cart Items</h1>
-									<div className="float-end" style={{ marginBottom: "10px", marginTop: "-6px" }}>
+									<div
+										className="float-end"
+										style={{ marginBottom: "10px", marginTop: "-6px" }}
+									>
 										<Link
 											className="float-end btn btn-outline-info"
 											to={"/burgers"}

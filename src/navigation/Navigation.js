@@ -100,7 +100,7 @@ const Navigation = () => {
 									<Link
 										className="nav-link active"
 										aria-current="page"
-										to="/orders"
+										to="/cart/shopping/orders"
 									>
 										Orders
 									</Link>

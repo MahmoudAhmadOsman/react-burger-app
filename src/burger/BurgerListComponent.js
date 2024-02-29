@@ -115,7 +115,9 @@ const BurgerListComponent = () => {
 											className="col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-3"
 										>
 											<div className="card">
-												<Link to={`/view-burger/${burger.id}`}>
+												<Link
+													to={`/burgers/view-burger/${burger.id}/${burger.name}`}
+												>
 													{burger.meal_img.length === 0 ? (
 														<span>Loading...</span>
 													) : (
@@ -132,7 +134,7 @@ const BurgerListComponent = () => {
 														<RatingComponent rating={burger.stars} />
 													</span>
 													<p className="text-warning fw-bold">
-														Reviews: ({burger.review}) 
+														Reviews: ({burger.review})
 													</p>
 													{/* <span className="card-text text-muted">
 														{burger.description.slice(0, 45)}...
@@ -190,7 +192,7 @@ const BurgerListComponent = () => {
 														{burger.calories} calories
 													</button>
 													<Link
-														to={`/view-burger/${burger.id}`}
+														to={`/burgers/view-burger/${burger.id}/${burger.name}`}
 														className="btn btn-outline-warning btn-sm ms-1"
 													>
 														VIEW
