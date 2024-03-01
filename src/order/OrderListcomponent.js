@@ -67,13 +67,13 @@ const OrderListcomponent = () => {
 					setTimeout(() => setOrderStatus("Processing"), 2000);
 					break;
 				case "Processing":
-					setTimeout(() => setOrderStatus("Shipping"), 2000);
+					setTimeout(() => setOrderStatus("Shipped"), 2000);
 					break;
-				case "Shipping":
-					setTimeout(() => setOrderStatus("Delivering"), 2000);
+				case "Shipped":
+					setTimeout(() => setOrderStatus("Delivered"), 2000);
 					break;
-				case "Delivering":
-					setTimeout(() => setOrderStatus("Completed"), 50000);
+				case "Delivered":
+					setTimeout(() => setOrderStatus("Completed"), 2000);
 					break;
 				case "Completed":
 					clearInterval(interval);
@@ -89,10 +89,10 @@ const OrderListcomponent = () => {
 	const getIconClass = () => {
 		switch (orderStatus) {
 			case "Processing":
-				return "fa fa-refresh fa-spin";
-			case "Shipping":
+				return "fa fa-circle-o-notch";
+			case "Shipped":
 				return "fa fa-truck";
-			case "Delivering":
+			case "Delivered":
 				return "fa fa-truck";
 			case "Completed":
 				return "fa fa-check-circle";
@@ -174,7 +174,7 @@ const OrderListcomponent = () => {
 													<td>
 														{order && (
 															<div className="text-center">
-																<span
+																{/* <span
 																	className={`text-${
 																		orderStatus === "Processing"
 																			? "success"
@@ -183,16 +183,54 @@ const OrderListcomponent = () => {
 																>
 																	<i className={getIconClass()}></i>{" "}
 																	{orderStatus}
-																</span>
-																{/* <span
-																	className={`text-${
-																		orderStatus === "Processing"
-																			? "success"
-																			: "info"
-																	}`}
-																>
-																	{orderStatus}
 																</span> */}
+																<span>
+																	{orderStatus === "Received" && (
+																		<b className="bg-info text-light text-uppercase p-1">
+																			<i
+																				className={`bg-white text-dark p-1 ${getIconClass()}`}
+																			></i>
+																			&nbsp; | &nbsp;
+																			{orderStatus}
+																		</b>
+																	)}
+																	{orderStatus === "Processing" && (
+																		<b className="bg-dark text-light text-uppercase p-1">
+																			<i
+																				className={`bg-white text-dark p-1 ${getIconClass()}`}
+																			></i>
+																			&nbsp; | &nbsp;
+																			{orderStatus}
+																		</b>
+																	)}
+																	{orderStatus === "Shipped" && (
+																		<b className="bg-warning text-light text-uppercase p-1">
+																			<i
+																				className={`bg-white text-dark p-1 ${getIconClass()}`}
+																			></i>
+																			&nbsp; | &nbsp;
+																			{orderStatus}
+																		</b>
+																	)}
+																	{orderStatus === "Delivered" && (
+																		<b className="bg-dark text-light text-uppercase p-1">
+																			<i
+																				className={`bg-white text-dark p-1 ${getIconClass()}`}
+																			></i>
+																			&nbsp; | &nbsp;
+																			{orderStatus}
+																		</b>
+																	)}
+																	{orderStatus === "Completed" && (
+																		<b className="bg-success text-light text-uppercase p-1">
+																			<i
+																				className={`bg-white text-dark p-1 ${getIconClass()}`}
+																			></i>
+																			&nbsp; | &nbsp;
+																			{orderStatus}
+																		</b>
+																	)}
+																</span>
 															</div>
 														)}
 													</td>
