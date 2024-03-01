@@ -33,7 +33,6 @@ const OrderListcomponent = () => {
 						);
 						setTotalPrice(totalPrice);
 						setOrderDate(new Date().toLocaleDateString());
-
 						setLoading(false);
 					} else {
 						throw new Error("Invalid data format");
