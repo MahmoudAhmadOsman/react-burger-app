@@ -94,7 +94,7 @@ const BurgerListComponent = () => {
 										<input
 											type="text"
 											className="form-control form-control-lg"
-											placeholder="Search Burgers and Drinks..."
+											placeholder="Search..."
 											value={searchTerm}
 											onChange={handleSearchChange}
 										/>
