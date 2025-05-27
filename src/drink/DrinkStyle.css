@@ -1,61 +1,62 @@
-.burger {
-	position: relative;
-}
-.burger .card {
-	/* height: 475px; */
-	/* min-height: 400px; */
-	margin-bottom: 20px;
-}
-.burger .card img {
-	/* min-height: 253px; */
-	height: auto;
-	object-fit: cover;
-}
-/*================ Burder Details style ================ */
-.burger-details {
-	position: relative;
-	overflow-x: hidden;
+.drink-image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  background-color: #f8f9fa; /* Fallback background */
 }
 
-.burger-details img.left-img {
-	width: 500px;
-	height: 350px;
-	object-fit: cover;
-	outline: solid #f6f6f6 11px;
+.drink-image:hover {
+  transform: scale(1.05);
 }
 
-/*============ Burger shopping cart style ============= */
-.burger-shopping-cart {
-	position: relative;
+.card {
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-/* Default styles for all devices */
-.burger-shopping-cart img.burger-in-cart {
-	width: 150px;
-	height: 150px;
-	border-radius: 50%;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Styles for devices with a maximum width of 600px */
-@media (max-width: 600px) {
-	.burger-shopping-cart img.burger-in-cart {
-		width: 100px;
-		height: 100px;
-	}
+.page-item.active .page-link {
+  background-color: #dc3545;
+  border-color: #dc3545;
 }
 
-/* Styles for devices with a minimum width of 601px and a maximum width of 1024px */
-@media (min-width: 601px) and (max-width: 1024px) {
-	.burger-shopping-cart img.burger-in-cart {
-		width: 120px;
-		height: 120px;
-	}
+.page-link {
+  color: #dc3545;
 }
 
-/* Styles for devices with a minimum width of 1025px */
-@media (min-width: 1025px) {
-	.burger-shopping-cart img.burger-in-cart {
-		width: 150px;
-		height: 150px;
-	}
+.page-link:hover {
+  color: #a71d2a;
+}
+
+.btn-outline-danger:hover {
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .drink-image {
+    height: 150px;
+  }
+}
+
+/* Loading animation for images */
+.drink-image.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }

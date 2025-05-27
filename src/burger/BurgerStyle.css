@@ -1,9 +1,8 @@
-.burger {
+/* .burger {
 	position: relative;
 }
 .burger .card {
-	/* height: 475px; */
-	height: auto;
+ 	height: auto;
 	margin-bottom: 20px;
 	position: relative;
 }
@@ -11,42 +10,123 @@
 	min-height: 200px;
 	height: auto;
 	object-fit: cover;
+} */
+/* Burger List Styles */
+.burger-list {
+  background-color: #f8f9fa;
+  min-height: 100vh;
 }
+
+.hover-effect {
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.burger-image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
+}
+
+.card-body {
+  padding: 1.5rem;
+  background-color: white;
+}
+
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+}
+
+.page-item.active .page-link {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.page-link {
+  color: #dc3545;
+  border: 1px solid #dee2e6;
+}
+
+.page-link:hover {
+  color: #a71d2a;
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+}
+
+.btn-outline-danger:hover {
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .burger-image {
+    height: 180px;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .burger-image {
+    height: 160px;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+}
+
 /*================ Burger Details style ================ */
 .burger-details {
-	position: relative;
-	overflow-x: hidden;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .burger-details img.left-img {
-	width: 500px;
-	height: 350px;
-	object-fit: cover;
-	outline: solid #f6f6f6 11px;
+  width: 500px;
+  height: 350px;
+  object-fit: cover;
+  outline: solid #f6f6f6 11px;
 }
 
 .burger-details button.btn-dark {
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	background-color: #333;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #333;
 }
 .burger-details .meal_btn {
-	font-size: 13px;
+  font-size: 13px;
 }
 
 .burger-details button i.fa-shopping-cart {
-	font-size: 26px;
-	text-align: center;
-	left: 0;
-	position: absolute;
-	right: 0;
+  font-size: 26px;
+  text-align: center;
+  left: 0;
+  position: absolute;
+  right: 0;
 }
 .burger-rating {
-	color: orange;
+  color: orange;
 }
 .burger-rating span i.fa {
-	color: #ffa500;
-	margin-right: 2px;
-	font-weight: bold;
+  color: #ffa500;
+  margin-right: 2px;
+  font-weight: bold;
 }

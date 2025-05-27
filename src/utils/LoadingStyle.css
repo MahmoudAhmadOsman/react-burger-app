@@ -1,26 +1,54 @@
-.loading-template {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	background-color: #ffffffea;
-	background-color: #fff;
-	z-index: 10000;
-	top: 0;
-	left: 0;
-	overflow: hidden;
-}
-.loading-template .items {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	height: 80%;
-	width: 100%;
-}
-.loading-template h1 {
-	color: brown;
+.not-found-page {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
 }
 
-.loading-template img {
-	border-bottom: 10px solid brown;
+.error-content {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.error-icon {
+  animation: bounce 2s infinite;
+}
+
+.text-gradient {
+  background: linear-gradient(45deg, #dc3545, #ff6b6b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .error-content {
+    padding: 2rem !important;
+  }
+
+  .display-1 {
+    font-size: 5rem;
+  }
+
+  .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
 }
