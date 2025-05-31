@@ -22,6 +22,9 @@ const ShoppingCartComponent = () => {
       position: "bottom-right",
       autoClose: 2000,
     });
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
   };
 
   const handlePlaceOrder = () => {

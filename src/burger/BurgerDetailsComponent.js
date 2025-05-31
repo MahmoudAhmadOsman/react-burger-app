@@ -58,6 +58,9 @@ const BurgerDetailsComponent = () => {
     toast.success(`${burger.name} added to cart!!`, {
       position: "bottom-right",
     });
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   };
 
   useEffect(() => {
@@ -142,22 +145,23 @@ const BurgerDetailsComponent = () => {
               {/* Details Column */}
               <div className="col-lg-6 col-md-12 bg-white">
                 <div className="p-4 p-lg-5 h-100 d-flex flex-column">
-                  <div className="mb-4">
+                  <div className="mb-2">
                     <h1 className="fw-bold mb-3">{burger.name}</h1>
-                    <div className="d-flex align-items-center mb-3">
+                    <div className="d-flex align-items-center mb-3 text-warning">
                       <RatingComponent rating={burger.stars} />
                       <span className="ms-2 text-muted">
                         ({burger.review} reviews)
                       </span>
                     </div>
-                    <h2 className="text-danger fw-bold mb-4">
-                      ${burger.price}
-                    </h2>
+                    <h3 className="text-muted">Price:</h3>
+                    <h5 className="text-danger  mb-2">${burger.price}</h5>
                   </div>
+                  <hr />
 
                   <div className="mb-4">
                     <h4 className="text-muted mb-3">
-                      <i className="fa fa-align-left me-2"></i>Description
+                      <i className="fa fa-align-left me-2 d-none"></i>
+                      Description
                     </h4>
                     <p className="lead">{burger.description}</p>
                   </div>
