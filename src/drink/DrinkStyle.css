@@ -1,62 +1,325 @@
+/* ==== DRINK COMPONENTS STYLING ==== */
+
+/* Main drink image styling */
 .drink-image {
-  height: 200px;
+  height: 250px;
   width: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
-  background-color: #f8f9fa; /* Fallback background */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px 12px 0 0;
 }
 
 .drink-image:hover {
-  transform: scale(1.05);
+  transform: scale(1.08) rotate(1deg);
+  filter: brightness(1.1) saturate(1.2);
 }
 
-.card {
-  transition: all 0.3s ease;
-  border-radius: 10px;
+/* Enhanced card styling */
+.drink-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 16px !important;
   overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08) !important;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+.drink-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Image wrapper with overlay effect */
+.drink-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.drink-image-wrapper:hover .image-overlay {
+  opacity: 1;
+}
+
+/* Detail page image styling */
+.drink-detail-image {
+  max-height: 500px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.2));
+  transition: all 0.3s ease;
+}
+
+.drink-detail-image:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 15px 40px rgba(0,0,0,0.3));
+}
+
+/* Gradient backgrounds */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.bg-gradient-light {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+/* Enhanced pagination */
+.pagination {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .page-item.active .page-link {
-  background-color: #dc3545;
+  background: linear-gradient(135deg, #dc3545, #c82333);
   border-color: #dc3545;
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+  transform: translateY(-1px);
 }
 
 .page-link {
   color: #dc3545;
+  border: none;
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+  font-weight: 600;
 }
 
 .page-link:hover {
-  color: #a71d2a;
+  color: #ffffff;
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
 }
 
-.btn-outline-danger:hover {
+.page-link:focus {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.25);
+}
+
+/* Button enhancements */
+.btn {
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  letter-spacing: 0.5px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  border: none;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #c82333, #a71d2a);
+  box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+}
+
+.btn-outline-primary:hover {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border-color: #007bff;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-outline-secondary:hover {
+  background: linear-gradient(135deg, #6c757d, #545b62);
+  border-color: #6c757d;
   color: white;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .drink-image {
-    height: 150px;
+/* Typography enhancements */
+.tracking-wide {
+  letter-spacing: 1px;
+}
+
+.text-uppercase {
+  letter-spacing: 0.5px;
+}
+
+/* Animation classes */
+.animated-text {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Loading animation for images */
-.drink-image.loading {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
+/* Card hover effects for info cards */
+.card {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0,0,0,0.08);
 }
 
-@keyframes loading {
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Enhanced breadcrumb */
+.breadcrumb {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 12px 16px;
+  backdrop-filter: blur(10px);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+  color: #6c757d;
+}
+
+/* Loading enhancements */
+.drink-image.loading {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
   0% {
     background-position: 200% 0;
   }
   100% {
     background-position: -200% 0;
   }
+}
+
+/* Badge styling */
+.badge {
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Enhanced shadows */
+.shadow-sm {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+.shadow {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Responsive design enhancements */
+@media (max-width: 768px) {
+  .drink-image {
+    height: 180px;
+  }
+  
+  .drink-detail-image {
+    max-height: 300px;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .display-3 {
+    font-size: 2.5rem;
+  }
+  
+  .display-6 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .drink-image {
+    height: 150px;
+  }
+  
+  .btn-lg {
+    padding: 10px 16px;
+    font-size: 1rem;
+  }
+  
+  .pagination {
+    font-size: 0.875rem;
+  }
+  
+  .page-link {
+    padding: 8px 12px;
+  }
+}
+
+/* Custom utility classes */
+.text-gradient-primary {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.border-gradient {
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  position: relative;
+}
+
+.border-gradient:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(135deg, #007bff, #dc3545);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+}
+
+/* Focus states for accessibility */
+.btn:focus,
+.page-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Enhanced z-index utilities */
+.z-index-1 {
+  z-index: 1;
+}
+
+.z-index-2 {
+  z-index: 2;
+}
+
+.z-index-3 {
+  z-index: 3;
 }

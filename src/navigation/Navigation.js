@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./NavigationStyle.css";
 
@@ -9,6 +9,7 @@ const Navigation = () => {
     return JSON.parse(localStorage.getItem("cartItems")) || [];
   });
   const [cartCount, setCartCount] = useState(cart.length);
+  const location = useLocation();
 
   useEffect(() => {
     fetch("https://stapes-api.onrender.com/orders")
@@ -27,18 +28,19 @@ const Navigation = () => {
     setCartCount(cart.length);
   }, [cart]);
 
+  const isActive = (path) => location.pathname === path;
+
   return (
-    <header className="sticky-top">
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3">
-        <div className="container">
-          {/* Brand/Logo with improved styling */}
-          <Link className="navbar-brand fw-bold fs-3" to="/">
-            VAST BURGERS
+    <header className="sticky-top nav-shadow">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-gradient py-3">
+        <div className="container-fluid px-4">
+          <Link className="navbar-brand d-flex align-items-center" to="/">
+            {/* <i className="fa fa-cutlery me-3 text-warning fs-4" aria-hidden="true"></i> */}
+            <span className="fw-bold fs-3 text-brand">VAST BURGERS</span>
           </Link>
 
-          {/* Mobile Toggle Button */}
           <button
-            className="navbar-toggler"
+            className="navbar-toggler border-0 p-0"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
@@ -46,60 +48,68 @@ const Navigation = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-custom">
+              <i className="fa fa-bars text-white fs-5"></i>
+            </span>
           </button>
 
-          {/* Navigation Links */}
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto align-items-center">
+            <ul className="navbar-nav ms-auto align-items-lg-center">
               <li className="nav-item mx-2">
-                <Link className="nav-link position-relative" to="/">
-                  Home
-                  <span
-                    className="position-absolute bottom-0 start-50 w-0 h-1 bg-primary transition-all"
-                    style={{ transform: "translateX(-50%)" }}
-                  ></span>
+                <Link 
+                  className={`nav-link nav-link-modern d-flex align-items-center ${isActive('/') ? 'active' : ''}`} 
+                  to="/"
+                >
+                  {/* <i className="fa fa-home me-2" aria-hidden="true"></i> */}
+                  <span>Home</span>
                 </Link>
               </li>
 
               <li className="nav-item mx-2">
-                <Link className="nav-link position-relative" to="/burgers">
-                  Burgers
-                  <span
-                    className="position-absolute bottom-0 start-50 w-0 h-1 bg-primary transition-all"
-                    style={{ transform: "translateX(-50%)" }}
-                  ></span>
+                <Link 
+                  className={`nav-link nav-link-modern d-flex align-items-center ${isActive('/burgers') ? 'active' : ''}`} 
+                  to="/burgers"
+                >
+                  {/* <i className="fa fa-birthday-cake me-2" aria-hidden="true"></i> */}
+                  <span>Burgers</span>
+                </Link>
+              </li>
+
+              <li className="nav-item mx-2">
+                <Link 
+                  className={`nav-link nav-link-modern d-flex align-items-center ${isActive('/drinks') ? 'active' : ''}`} 
+                  to="/drinks"
+                >
+                  {/* <i className="fa fa-glass me-2" aria-hidden="true"></i> */}
+                  <span>Drinks</span>
                 </Link>
               </li>
 
               {orders.length > 0 && (
                 <li className="nav-item mx-2">
                   <Link
-                    className="nav-link position-relative"
+                    className={`nav-link nav-link-modern d-flex align-items-center position-relative ${isActive('/cart/shopping/orders') ? 'active' : ''}`}
                     to="/cart/shopping/orders"
                   >
-                    Orders
-                    <span
-                      className="position-absolute bottom-0 start-50 w-0 h-1 bg-primary transition-all"
-                      style={{ transform: "translateX(-50%)" }}
-                    ></span>
+                    <i className="fa fa-list-alt me-2" aria-hidden="true"></i>
+                    <span>Orders</span>
+                    <span className="badge bg-info text-dark ms-2 orders-badge">
+                      {orders.length}
+                    </span>
                   </Link>
                 </li>
               )}
 
-              {/* Shopping Cart with improved styling */}
               {cartCount > 0 && (
                 <li className="nav-item ms-3">
-                  <Link className="nav-link" to="/shopping/shopping-cart">
+                  <Link className="nav-link p-0" to="/shopping/shopping-cart">
                     <button
                       type="button"
-                      className="btn btn-outline-light position-relative rounded-pill px-3 py-2"
+                      className="btn btn-cart position-relative d-flex align-items-center"
                     >
-                      <i
-                        className="fa fa-shopping-cart fa-lg"
-                        aria-hidden="true"
-                      ></i>
-                      <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                      <i className="fa fa-shopping-cart me-2" aria-hidden="true"></i>
+                      <span className="d-none d-md-inline">Cart</span>
+                      <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark cart-badge">
                         {cartCount}
                         <span className="visually-hidden">items in cart</span>
                       </span>

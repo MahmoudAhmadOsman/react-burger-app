@@ -1,132 +1,1055 @@
-/* .burger {
-	position: relative;
-}
-.burger .card {
- 	height: auto;
-	margin-bottom: 20px;
-	position: relative;
-}
-.burger .card img {
-	min-height: 200px;
-	height: auto;
-	object-fit: cover;
-} */
-/* Burger List Styles */
+/* ================ MODERN BURGER LIST STYLES ================ */
+
+/* Background and Layout */
 .burger-list {
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   min-height: 100vh;
+  position: relative;
 }
 
-.hover-effect {
+/* ================ HERO SECTION STYLES ================ */
+.hero-section {
+  position: relative;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 20px;
+  margin: 0 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-icon {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  letter-spacing: -0.02em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.search-container .input-group {
+  border: none;
+  box-shadow: 0 15px 35px rgba(220, 53, 69, 0.1);
+}
+
+.search-container .form-control {
+  font-size: 1.1rem;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+}
+
+.search-container .form-control:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.bg-gradient-danger {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+}
+
+.stats-row .stat-item {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
-  border-radius: 10px;
-  overflow: hidden;
 }
 
-.hover-effect:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+.stats-row .stat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ================ SECTION DIVIDER ================ */
+.section-divider {
+  position: relative;
+}
+
+.divider-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #dc3545 50%, transparent 100%);
+  border-radius: 2px;
+}
+
+/* ================ RESULTS HEADER ================ */
+.results-header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.view-options {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ================ BURGER CARDS ================ */
+.burger-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: none;
+  background: #ffffff;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.burger-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-image-container {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
 }
 
 .burger-image {
-  height: 200px;
+  height: 100%;
   width: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: all 0.4s ease;
 }
 
-.card {
-  border-radius: 10px;
-  overflow: hidden;
+.burger-card:hover .burger-image {
+  transform: scale(1.1);
+}
+
+/* Image Overlay Effects */
+.image-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.burger-card:hover .image-overlay {
+  opacity: 1;
+}
+
+.quick-actions .btn-white {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
   border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
-.card-body {
-  padding: 1.5rem;
-  background-color: white;
+.quick-actions .btn-white:hover {
+  background: #dc3545;
+  color: white;
+  transform: scale(1.1);
 }
 
-.badge {
-  font-weight: 500;
-  padding: 0.35em 0.65em;
+/* Price and Calories Badges */
+.price-badge {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+  backdrop-filter: blur(10px);
 }
 
-.page-item.active .page-link {
-  background-color: #dc3545;
-  border-color: #dc3545;
+.calories-badge {
+  font-size: 0.8rem;
+  backdrop-filter: blur(10px);
 }
 
-.page-link {
+/* Card Body Styling */
+.burger-card .card-body {
+  padding: 0;
+  background: #ffffff;
+}
+
+.burger-header {
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.burger-title {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+.rating-section .fa {
+  color: #ffc107;
+  font-size: 0.9rem;
+}
+
+.burger-description {
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.burger-description .card-text {
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.burger-actions-footer .btn {
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: none;
+}
+
+.burger-actions-footer .btn-outline-danger {
+  border: 2px solid #dc3545;
   color: #dc3545;
-  border: 1px solid #dee2e6;
 }
 
-.page-link:hover {
-  color: #a71d2a;
-  background-color: #f8f9fa;
-  border-color: #dee2e6;
+.burger-actions-footer .btn-outline-danger:hover {
+  background: #dc3545;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
 }
 
-.btn-outline-danger:hover {
+.burger-actions-footer .btn-danger {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  border: none;
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.burger-actions-footer .btn-danger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(220, 53, 69, 0.4);
+}
+
+/* ================ EMPTY STATE STYLES ================ */
+.empty-state {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin: 0 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.empty-content {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.empty-icon {
+  position: relative;
+}
+
+.empty-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(220, 53, 69, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.suggestions .badge {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.suggestions .badge:hover {
+  background: #dc3545 !important;
+  color: white !important;
+  transform: translateY(-1px);
+}
+
+/* ================ PAGINATION STYLES ================ */
+.pagination-section {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 0 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-modern .page-item.active .page-link {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  border: none;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+  transform: scale(1.1);
   color: white;
 }
 
-/* Responsive adjustments */
-@media (max-width: 767.98px) {
-  .burger-image {
-    height: 180px;
-  }
+.pagination-modern .page-link {
+  color: #dc3545;
+  border: 2px solid transparent;
+  font-weight: 600;
+  margin: 0 0.25rem;
+  transition: all 0.3s ease;
+  min-width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .card-body {
-    padding: 1.25rem;
+.pagination-modern .page-link:hover {
+  color: white;
+  background: #dc3545;
+  border-color: #dc3545;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+}
+
+.pagination-modern .page-item.disabled .page-link {
+  color: #6c757d;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.pagination-modern .page-item.disabled .page-link:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ================ RESPONSIVE DESIGN ================ */
+
+/* Tablet Styles */
+@media (max-width: 991.98px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-section {
+    margin: 0 10px;
+    padding: 2rem 0;
+  }
+  
+  .stats-row {
+    justify-content: center !important;
+    gap: 0.5rem !important;
+  }
+  
+  .stats-row .stat-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
   }
 }
 
-@media (max-width: 575.98px) {
-  .burger-image {
-    height: 160px;
+/* Mobile Styles */
+@media (max-width: 767.98px) {
+  .hero-title {
+    font-size: 2rem;
   }
-
-  .card-body {
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .search-container .form-control {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .card-image-container {
+    height: 200px;
+  }
+  
+  .burger-card .card-body {
+    padding: 1.5rem;
+  }
+  
+  .results-header {
     padding: 1rem;
   }
+  
+  .view-options {
+    width: 100%;
+    justify-content: center !important;
+    margin-top: 1rem;
+  }
+  
+  .pagination-section {
+    padding: 1.5rem;
+    margin: 0 10px;
+  }
+  
+  .pagination-modern .page-link {
+    min-width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
 }
 
-/*================ Burger Details style ================ */
+/* Small Mobile Styles */
+@media (max-width: 575.98px) {
+  .hero-section {
+    margin: 0 5px;
+    padding: 1.5rem 0;
+  }
+  
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .card-image-container {
+    height: 180px;
+  }
+  
+  .burger-card .card-body {
+    padding: 1rem;
+  }
+  
+  .burger-actions-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .burger-actions-footer .btn {
+    width: 100%;
+  }
+  
+  .stats-row {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .pagination-section {
+    padding: 1rem;
+    margin: 0 5px;
+  }
+  
+  .pagination-modern {
+    font-size: 0.85rem;
+  }
+  
+  .pagination-modern .page-link {
+    min-width: 35px;
+    height: 35px;
+    margin: 0 0.125rem;
+  }
+}
+
+/* ================ BURGER DETAILS MODERN STYLES ================ */
 .burger-details {
   position: relative;
   overflow-x: hidden;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
 }
 
 .burger-details img.left-img {
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
   height: 350px;
   object-fit: cover;
-  outline: solid #f6f6f6 11px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border: 3px solid #ffffff;
+  transition: all 0.3s ease;
+}
+
+.burger-details img.left-img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .burger-details button.btn-dark {
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
-  background-color: #333;
+  background: linear-gradient(135deg, #343a40 0%, #495057 100%);
+  border: none;
+  box-shadow: 0 8px 20px rgba(52, 58, 64, 0.3);
+  transition: all 0.3s ease;
 }
+
+.burger-details button.btn-dark:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(52, 58, 64, 0.4);
+  background: linear-gradient(135deg, #495057 0%, #6c757d 100%);
+}
+
 .burger-details .meal_btn {
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 
 .burger-details button i.fa-shopping-cart {
-  font-size: 26px;
+  font-size: 24px;
   text-align: center;
-  left: 0;
   position: absolute;
-  right: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
 }
+
+.burger-details button:hover i.fa-shopping-cart {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
 .burger-rating {
-  color: orange;
+  color: #ffc107;
 }
+
 .burger-rating span i.fa {
-  color: #ffa500;
-  margin-right: 2px;
+  color: #ffc107;
+  margin-right: 3px;
   font-weight: bold;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 3px rgba(255, 193, 7, 0.3);
+  transition: all 0.3s ease;
+}
+
+.burger-rating span i.fa:hover {
+  transform: scale(1.2);
+  color: #ffb300;
+}
+
+/* ================ UTILITY CLASSES ================ */
+.hover-effect {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.hover-effect:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.btn-white {
+  background: #ffffff;
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-white:hover {
+  background: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+/* ================ ANIMATION UTILITIES ================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* ================ GLASSMORPHISM EFFECTS ================ */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* ================ BURGER DETAILS PAGE STYLES ================ */
+
+/* Page Layout */
+.burger-details-page {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb-container {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb-container .breadcrumb-item a {
+  transition: all 0.3s ease;
+}
+
+.breadcrumb-container .breadcrumb-item a:hover {
+  color: #dc3545 !important;
+}
+
+/* Header Section */
+.details-header {
+  margin-bottom: 2rem;
+}
+
+.back-button {
+  background: rgba(255, 255, 255, 0.8);
+  color: #6c757d;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: #dc3545;
+  color: white;
+  border-color: #dc3545;
+  transform: translateX(-5px);
+}
+
+.details-title {
+  font-size: 3rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.cart-widget {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Loading and Error States */
+.loading-state, .error-state {
+  padding: 4rem 0;
+}
+
+.loading-content, .error-content {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.max-width-500 {
+  max-width: 500px;
+}
+
+.error-icon {
+  position: relative;
+}
+
+.error-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(220, 53, 69, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* Main Card Layout */
+.burger-details-card {
+  margin-bottom: 3rem;
+}
+
+/* Image Section */
+.image-section {
+  position: relative;
+}
+
+.image-container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+}
+
+.burger-details-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.image-container:hover .burger-details-image {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.image-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: all 0.3s ease;
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-actions .btn-white {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  border: none;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.image-actions .btn-white:hover {
+  background: #dc3545;
+  color: white;
+  transform: scale(1.1);
+}
+
+.image-badge .badge {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+}
+
+.image-placeholder {
+  height: 400px;
+  background: rgba(248, 249, 250, 0.8);
+  border: 2px dashed #dee2e6;
+  border-radius: 16px;
+}
+
+.placeholder-icon {
+  position: relative;
+}
+
+.placeholder-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(108, 117, 125, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* Details Section */
+.details-section {
+  position: relative;
+}
+
+.details-content {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.burger-details-title {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: #2c3e50;
+}
+
+.rating-wrapper {
+  align-items: center;
+}
+
+.rating-stars .fa {
+  color: #ffc107;
+  font-size: 1.1rem;
+  margin-right: 2px;
+}
+
+.reviews-count {
+  font-size: 0.95rem;
+}
+
+.price-wrapper {
+  background: rgba(248, 249, 250, 0.8) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.price-wrapper:hover {
+  background: rgba(220, 53, 69, 0.1) !important;
+  border-color: rgba(220, 53, 69, 0.2);
+}
+
+/* Section Headers */
+.section-title {
+  font-size: 1.25rem;
+  color: #2c3e50;
+}
+
+.section-divider hr {
+  border-color: rgba(220, 53, 69, 0.3);
+  opacity: 0.5;
+}
+
+/* Description */
+.description-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #6c757d;
+}
+
+/* Nutrition Cards */
+.nutrition-grid .row {
+  margin: -0.5rem;
+}
+
+.nutrition-grid .col-6 {
+  padding: 0.5rem;
+}
+
+.nutrition-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nutrition-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.nutrition-icon {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nutrition-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nutrition-value {
+  font-size: 1.25rem;
+  color: #2c3e50;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3);
+}
+
+.add-to-cart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(220, 53, 69, 0.4);
+  background: linear-gradient(135deg, #c82333 0%, #a71d2a 100%);
+}
+
+.add-to-cart-btn:active {
+  transform: translateY(0);
+}
+
+.btn-content {
+  position: relative;
+  z-index: 2;
+}
+
+.add-to-cart-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.add-to-cart-btn:hover::before {
+  left: 100%;
+}
+
+/* Delivery Info */
+.delivery-info {
+  gap: 1rem;
+}
+
+.delivery-item {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ================ RESPONSIVE DESIGN FOR BURGER DETAILS ================ */
+
+/* Tablet Styles */
+@media (max-width: 991.98px) {
+  .details-title {
+    font-size: 2.5rem;
+  }
+  
+  .burger-details-title {
+    font-size: 2rem;
+  }
+  
+  .burger-details-image {
+    height: 350px;
+  }
+  
+  .image-placeholder {
+    height: 350px;
+  }
+  
+  .details-content {
+    margin-top: 2rem;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 767.98px) {
+  .burger-details-page {
+    padding-top: 1rem;
+  }
+  
+  .details-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .burger-details-title {
+    font-size: 1.75rem;
+  }
+  
+  .header-content {
+    text-align: center;
+  }
+  
+  .header-actions {
+    justify-content: center !important;
+    margin-top: 1rem;
+  }
+  
+  .burger-details-image {
+    height: 300px;
+  }
+  
+  .image-placeholder {
+    height: 300px;
+  }
+  
+  .image-container {
+    padding: 1.5rem;
+  }
+  
+  .details-content {
+    padding: 2rem !important;
+    margin-top: 2rem;
+  }
+  
+  .nutrition-card {
+    min-height: 100px;
+  }
+  
+  .nutrition-icon {
+    height: 35px;
+  }
+  
+  .nutrition-icon .fa {
+    font-size: 1.5rem;
+  }
+  
+  .add-to-cart-btn {
+    font-size: 1rem;
+    padding: 1rem !important;
+  }
+  
+  .delivery-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 575.98px) {
+  .details-title {
+    font-size: 1.75rem;
+  }
+  
+  .burger-details-title {
+    font-size: 1.5rem;
+  }
+  
+  .burger-details-image {
+    height: 250px;
+  }
+  
+  .image-placeholder {
+    height: 250px;
+  }
+  
+  .image-container {
+    padding: 1rem;
+  }
+  
+  .details-content {
+    padding: 1.5rem !important;
+  }
+  
+  .nutrition-grid .col-6 {
+    margin-bottom: 1rem;
+  }
+  
+  .nutrition-card {
+    min-height: 90px;
+  }
+  
+  .breadcrumb-container {
+    padding: 0.5rem 1rem !important;
+  }
+  
+  .back-button span {
+    display: none !important;
+  }
 }
